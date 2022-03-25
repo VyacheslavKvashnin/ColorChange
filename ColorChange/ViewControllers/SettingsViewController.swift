@@ -89,22 +89,26 @@ class SettingsViewController: UIViewController {
 }
 
 extension SettingsViewController: UITextFieldDelegate {
+    
     func textFieldDidEndEditing(_ textField: UITextField) {
         
-        if textField == redColorTextField {
-            guard let floatValue = Float(redColorTextField.text ?? "") else { return  }
-            redColorSlider.value = floatValue
-            redLabel.text = redColorTextField.text
-            
-        } else if textField == greenColorTextField {
-            guard let floatValue = Float(greenColorTextField.text ?? "") else { return  }
-            greenColorSlider.value = floatValue
-            greenLabel.text = greenColorTextField.text
-            
-        } else {
-            guard let floatValue = Float(blueColorTextField.text ?? "") else { return  }
-            blueColorSlider.value = floatValue
-            blueLabel.text = blueColorTextField.text
+        guard let text = textField.text else { return }
+        
+        if let currentValue = Float(text) {
+            switch textField {
+            case redColorTextField:
+                redColorSlider.value = currentValue
+                redLabel.text = String(currentValue)
+                getRgbColor()
+            case greenColorSlider:
+                greenColorSlider.value = currentValue
+                greenLabel.text = String(currentValue)
+                getRgbColor()
+            default:
+                blueColorSlider.value = currentValue
+                blueLabel.text = String(currentValue)
+                getRgbColor()
+            }
         }
     }
     
