@@ -9,6 +9,7 @@ import UIKit
 
 class SettingsViewController: UIViewController {
     
+    // MARK: - IBOutlets
     @IBOutlet weak var viewColorChange: UIView!
     
     @IBOutlet weak var redLabel: UILabel!
@@ -23,6 +24,7 @@ class SettingsViewController: UIViewController {
     @IBOutlet weak var greenColorTextField: UITextField!
     @IBOutlet weak var blueColorTextField: UITextField!
     
+    // MARK: - Public Properties
     var delegate: ColorDelegate!
     var colorBackground: UIColor!
     
@@ -43,6 +45,7 @@ class SettingsViewController: UIViewController {
         setValueToTextField()
     }
     
+    // MARK: - IBActions
     @IBAction func getRgbColor() {
         
         setValueToLabel()
@@ -63,6 +66,7 @@ class SettingsViewController: UIViewController {
         dismiss(animated: true)
     }
     
+    // MARK: - Private Methods
     private func setSliders() {
         let ciColor = CIColor(color: colorBackground)
         
@@ -102,5 +106,14 @@ extension SettingsViewController: UITextFieldDelegate {
             blueColorSlider.value = floatValue
             blueLabel.text = blueColorTextField.text
         }
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        switch textField {
+        case redColorTextField: greenColorTextField.becomeFirstResponder()
+        case greenColorTextField: blueColorTextField.becomeFirstResponder()
+        default: redColorTextField.becomeFirstResponder()
+        }
+        return true
     }
 }
