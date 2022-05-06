@@ -9,10 +9,10 @@
 
 ### Использовались свойства:
 
-1. UISegmentedControl
-2. UILabel
-3. UITextField
-4. UIButton
-5. UISlider
-6. UISwitch
-7. UIDatePicker
+> + UISegmentedControl
+> + UILabel
+> + UITextField
+> + UIButton
+> + UISlider
+> + UISwitch
+> + UIDatePicker
