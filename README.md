@@ -7,9 +7,9 @@
 
 Ислользовались:
 
-UISegmentedControl
-UILabel
-UITextField
+- UISegmentedControl
+- UILabel
+- UITextField
 UIButton
 UISlider
 UISwitch
