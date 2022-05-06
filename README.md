@@ -7,7 +7,7 @@
 
 ## Ислользовались свойства:
 
-_1. UISegmentedControl
+_1. UISegmentedControl_
 2. UILabel
 3. UITextField
 4. UIButton
